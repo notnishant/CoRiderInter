@@ -160,6 +160,7 @@ const App: React.FC = () => {
         console.error("Error fetching chat data:", error);
       });
   }, []);
+  
 
   return (
     <div className="App">
