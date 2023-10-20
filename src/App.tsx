@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,} from "react";
 import "./App.css";
 import {
   ArrowLeftIcon,
@@ -57,7 +57,7 @@ export const Reply = (): JSX.Element => {
           <PaperAirplaneIcon size={24} />
         </div>
       </div>
-      <div className={openAttachment ? "no" : "attach"}>
+      <div className={openAttachment ? "attach" : "no"}>
         <AttachmentMenu />
       </div>
     </div>
@@ -80,7 +80,9 @@ export const AttachmentMenu = (): JSX.Element => {
     </div>
   );
 };
+
 const ChatComponent: React.FC<ApiResponse> = (data) => {
+  
   return (
     <div className="ChatScreen">
       <div className="Trip">
@@ -124,13 +126,16 @@ const ChatComponent: React.FC<ApiResponse> = (data) => {
         </div>
         <hr className="linebreak" />
       </div>
+      
       <div className="ChatComponent">
         {data.chats.map((chat) => (
           <div
             key={chat.id}
             className={chat.sender.self ? "self-chat" : "other-chat"}
-          >
+          > <div className={chat.sender.is_kyc_verified? "kyc-badge": "no-kyc"}>
             <img src={chat.sender.image} alt="User" />
+            
+            </div>
             <ChatBubble message={chat.message} self={chat.sender.self} />
           </div>
         ))}

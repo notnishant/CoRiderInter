@@ -59,9 +59,13 @@ body {
 }
 .ChatComponent {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
+  /* height: 100%;
   margin-top: 80%;
   margin-bottom: 35%;
+  width: 100%;
+  bottom: 0; */
+  
 }
 
 .ChatComponent .other-chat {
@@ -129,7 +133,6 @@ body {
   bottom: 0vw;
   right: 0;
 }
-
 .reply .frame {
   align-items: center;
   position: relative;
@@ -145,6 +148,10 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+.reply .icon-div button {
+  background-color: transparent;
+  border: none;
 }
 .reply .text-div input {
   border: none;
