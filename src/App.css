@@ -1,0 +1,188 @@
+/* App.css */
+
+/* Base styles for the entire app */
+body {
+  font-family: "Averta CY";
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  background-color: #f9f8f3;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.ChatScreen {
+  height: 100%;
+  padding: 0vw 5vw 0vw 5vw;
+}
+.Trip {
+  position: fixed;
+  width: 100%;
+  background-color: #f9f8f3;
+}
+.Trip .trip-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 10vw;
+}
+.trip-nav .back {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.Trip .trip-nav h1 {
+  font-weight: 500;
+  word-spacing: -1vw;
+  font-size: 8vw;
+  padding-left: 3vw;
+  padding-bottom: 1vw;
+}
+.Trip p {
+  font-weight: 300;
+  font-size: 4.2vw;
+  letter-spacing: 0.12vw;
+}
+.header {
+  display: flex;
+  align-items: center;
+}
+.header img {
+  width: 12vw;
+  height: 12vw;
+  border-radius: 100%;
+  margin-right: 5vw;
+}
+.ChatComponent {
+  display: flex;
+  flex-direction: column;
+  margin-top: 80%;
+  margin-bottom: 35%;
+}
+
+.ChatComponent .other-chat {
+  display: flex;
+  flex-direction: row;
+}
+.ChatComponent img {
+  width: 7vw;
+  height: 7vw;
+  border-radius: 100%;
+  margin-right: 3vw;
+}
+.other-chat {
+  display: flex;
+  padding: 5vw 10vw 0vw 0vw;
+  align-items: top;
+}
+.self-chat {
+  display: flex;
+  padding: 5vw 0vw 0vw 10vw;
+}
+.self-chat img {
+  display: none;
+}
+
+.OtherChatBubble {
+  background-color: white;
+  border-radius: 3vw;
+  border-top-left-radius: 0;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  padding: 2vw;
+}
+.OtherChatBubble p {
+  color: #7b7b7b;
+  font-size: 4vw;
+  font-weight: 300;
+  letter-spacing: 0.13vw;
+  word-spacing: 0.2vw;
+  margin: -1px 0px;
+}
+
+.SelfChatBubble {
+  background-color: rgb(0, 120, 254);
+  color: white;
+  border-radius: 3vw;
+  border-bottom-right-radius: 0;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  padding: 2vw;
+}
+.SelfChatBubble p {
+  font-size: 4vw;
+  font-weight: 300;
+  letter-spacing: 0.13vw;
+  word-spacing: 0.1vw;
+  margin: 0vw 1vw;
+}
+
+.reply {
+  background-color: #f9f8f3;
+  position: fixed;
+  width: 100%;
+  height: 25vw;
+  bottom: 0vw;
+  right: 0;
+}
+
+.reply .frame {
+  align-items: center;
+  position: relative;
+  background-color: #ffffff;
+  margin: 3vw;
+  border-radius: 5vw;
+  padding: 4vw 5vw 4vw 5vw;
+  display: flex;
+  justify-content: space-between;
+}
+.reply .icon-div {
+  min-width: 25%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.reply .text-div input {
+  border: none;
+  font-size: 3.5vw;
+}
+.reply .text-div input:focus {
+  outline: none;
+}
+
+.attachment:focus {
+  background-color: red;
+}
+.attachmentmenu {
+  position: absolute;
+  bottom: 18vw;
+  right: 3vw;
+}
+.attachmentmenu .icon {
+  color: white;
+}
+.attachmentmenu ul {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  padding: 5vw 5vw 5vw 5vw;
+  background-color: green;
+  border-radius: 8vw;
+  gap: 7vw;
+}
+.attachmentmenu::before {
+  content: "";
+  position: absolute;
+  border: 2vw solid transparent;
+  border-top-color: green;
+  border-bottom: 0;
+  bottom: 2.4vw;
+  right: 18vw;
+}
+.no {
+  display: none;
+}
