@@ -43,11 +43,10 @@ body {
 }
 
 .Trip .trip-nav h1 {
-  font-weight: 500;
+  font-weight: 400;
   word-spacing: -1vw;
-  font-size: 8vw;
+  font-size: 7vw;
   padding-left: 3vw;
-  padding-bottom: 1vw;
 }
 .Trip p {
   font-weight: 300;
@@ -196,4 +195,7 @@ body {
 }
 .no {
   display: none;
+}
+.kyc-badge{
+  
 }

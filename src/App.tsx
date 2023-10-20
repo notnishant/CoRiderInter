@@ -1,4 +1,5 @@
-import React, { useEffect, useState,} from "react";
+import React, { useEffect, useState } from "react";
+import { ChakraProvider } from "@chakra-ui/react";
 import "./App.css";
 import {
   ArrowLeftIcon,
@@ -8,6 +9,7 @@ import {
   PaperAirplaneIcon,
   PaperclipIcon,
 } from "@primer/octicons-react";
+import { Badge } from "@chakra-ui/react";
 
 interface Chat {
   id: string;
@@ -82,19 +84,18 @@ export const AttachmentMenu = (): JSX.Element => {
 };
 
 const ChatComponent: React.FC<ApiResponse> = (data) => {
-  
   return (
     <div className="ChatScreen">
       <div className="Trip">
         <div className="trip-nav">
           <div className="back">
-            <ArrowLeftIcon size={24} />
+            <ArrowLeftIcon size={28} />
             <h1>{data.name}</h1>{" "}
           </div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
+            width="24"
+            height="24"
             viewBox="0 0 20 20"
             fill="none"
           >
@@ -126,15 +127,18 @@ const ChatComponent: React.FC<ApiResponse> = (data) => {
         </div>
         <hr className="linebreak" />
       </div>
-      
+
       <div className="ChatComponent">
         {data.chats.map((chat) => (
           <div
             key={chat.id}
             className={chat.sender.self ? "self-chat" : "other-chat"}
-          > <div className={chat.sender.is_kyc_verified? "kyc-badge": "no-kyc"}>
-            <img src={chat.sender.image} alt="User" />
-            
+          >
+            {" "}
+            <div
+              className={chat.sender.is_kyc_verified ? "kyc-badge" : "no-kyc"}
+            >
+              <img src={chat.sender.image} alt="User" />
             </div>
             <ChatBubble message={chat.message} self={chat.sender.self} />
           </div>
@@ -160,7 +164,6 @@ const App: React.FC = () => {
         console.error("Error fetching chat data:", error);
       });
   }, []);
-  
 
   return (
     <div className="App">
