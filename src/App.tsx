@@ -8,9 +8,8 @@ import {
   PaperAirplaneIcon,
   PaperclipIcon,
 } from "@primer/octicons-react";
-import { Avatar, Badge, Stack } from "@mui/material";
+import { Avatar, Badge} from "@mui/material";
 import { styled } from "@mui/material/styles";
-import VerifiedIcon from "@mui/icons-material/Verified";
 
 interface Chat {
   id: string;
