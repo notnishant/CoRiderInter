@@ -71,24 +71,36 @@ body {
   top: 45vw;
   left: 0;
   bottom: 25vw;
-  padding: 5vw;
+  padding: 5vw 5vw 5vw 0vw ;
 }
+
 
 .ChatComponent .other-chat {
   display: flex;
   flex-direction: row;
 }
 .ChatComponent img {
-  width: 7vw;
-  height: 7vw;
+  width: 8vw;
+  height: 8vw;
   border-radius: 100%;
-  margin-right: 3vw;
+}
+
+.badge .kyc-badge {
+}
+.badge .kyc-badge img {
+  object-fit: cover;
+  width: 3vw;
+  height: 3vw;
 }
 .other-chat {
   display: flex;
-  padding: 5vw 10vw 0vw 0vw;
+  padding: 5vw 7vw 0vw 0vw;
   align-items: top;
 }
+.other-chat .OtherChatBubble{
+  margin-left: 2vw;
+}
+
 .self-chat {
   display: flex;
   padding: 5vw 0vw 0vw 10vw;
@@ -130,7 +142,9 @@ body {
   word-spacing: 0.1vw;
   margin: 0vw 1vw;
 }
-
+.self-chat .badge {
+  display: none;
+}
 .reply {
   /* background-color: #f9f8f3; */
 
@@ -181,6 +195,7 @@ body {
   flex-direction: row;
   list-style-type: none;
   padding: 5vw 5vw 5vw 5vw;
+  background-color: green;
   border-radius: 8vw;
   gap: 7vw;
 }
@@ -195,7 +210,4 @@ body {
 }
 .no {
   display: none;
-}
-.kyc-badge{
-  
 }

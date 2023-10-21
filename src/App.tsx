@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { ChakraProvider } from "@chakra-ui/react";
 import "./App.css";
 import {
   ArrowLeftIcon,
@@ -9,7 +8,9 @@ import {
   PaperAirplaneIcon,
   PaperclipIcon,
 } from "@primer/octicons-react";
-import { Badge } from "@chakra-ui/react";
+import { Avatar, Badge, Stack } from "@mui/material";
+import { styled } from "@mui/material/styles";
+import VerifiedIcon from "@mui/icons-material/Verified";
 
 interface Chat {
   id: string;
@@ -83,6 +84,11 @@ export const AttachmentMenu = (): JSX.Element => {
   );
 };
 
+const SmallAvatar = styled(Avatar)(({ theme }) => ({
+  width: 11,
+  height: 11,
+}));
+
 const ChatComponent: React.FC<ApiResponse> = (data) => {
   return (
     <div className="ChatScreen">
@@ -138,7 +144,21 @@ const ChatComponent: React.FC<ApiResponse> = (data) => {
             <div
               className={chat.sender.is_kyc_verified ? "kyc-badge" : "no-kyc"}
             >
-              <img src={chat.sender.image} alt="User" />
+              <Badge
+                className="badge"
+                overlap="circular"
+                anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+                badgeContent={
+                  <SmallAvatar
+                    className="kyc-badge"
+                    alt="no-kyc"
+                    src="https://img.icons8.com/color/48/instagram-verification-badge.png"
+                  />
+                }
+              >
+                <Avatar alt="User" src={chat.sender.image} />
+              </Badge>
+              {/* <img src={chat.sender.image} alt="User" /> */}
             </div>
             <ChatBubble message={chat.message} self={chat.sender.self} />
           </div>
