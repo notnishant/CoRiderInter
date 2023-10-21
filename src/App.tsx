@@ -8,7 +8,7 @@ import {
   PaperAirplaneIcon,
   PaperclipIcon,
 } from "@primer/octicons-react";
-import { Avatar, Badge} from "@mui/material";
+import { Avatar, Badge } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 interface Chat {
@@ -89,6 +89,24 @@ const SmallAvatar = styled(Avatar)(({ theme }) => ({
 }));
 
 const ChatComponent: React.FC<ApiResponse> = (data) => {
+  const [currentDate, setCurrentDate] = useState<Date>(new Date());
+
+  useEffect(() => {
+    if (data.chats.length > 0) {
+      const newestMessage = data.chats[data.chats.length - 1];
+      const newestMessageDate = new Date(newestMessage.time);
+
+      if (newestMessageDate > currentDate) {
+        setCurrentDate(newestMessageDate);
+      }
+    }
+  }, [data.chats]);
+
+  // Display the date without time
+
+  const formatDate = (date: Date): string => {
+    return date.toLocaleDateString();
+  };
   return (
     <div className="ChatScreen">
       <div className="Trip">
@@ -132,38 +150,36 @@ const ChatComponent: React.FC<ApiResponse> = (data) => {
         </div>
         <hr className="linebreak" />
       </div>
-
-      <div className="ChatComponent">
-        {data.chats.map((chat) => (
-          <div
-            key={chat.id}
-            className={chat.sender.self ? "self-chat" : "other-chat"}
-          >
-            {" "}
+        <div className="ChatComponent">
+          {data.chats.map((chat) => (
             <div
-              className={chat.sender.is_kyc_verified ? "kyc-badge" : "no-kyc"}
+              key={chat.id}
+              className={chat.sender.self ? "self-chat" : "other-chat"}
             >
-              <Badge
-                className="badge"
-                overlap="circular"
-                anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-                badgeContent={
-                  <SmallAvatar
-                    className="kyc-badge"
-                    alt="no-kyc"
-                    src="https://img.icons8.com/color/48/instagram-verification-badge.png"
-                  />
-                }
+              {" "}
+              <div
+                className={chat.sender.is_kyc_verified ? "kyc-badge" : "no-kyc"}
               >
-                <Avatar alt="User" src={chat.sender.image} />
-              </Badge>
-              {/* <img src={chat.sender.image} alt="User" /> */}
+                <Badge
+                  className="badge"
+                  overlap="circular"
+                  anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+                  badgeContent={
+                    <SmallAvatar
+                      className="kyc-badge"
+                      alt="no-kyc"
+                      src="https://img.icons8.com/color/48/instagram-verification-badge.png"
+                    />
+                  }
+                >
+                  <Avatar alt="User" src={chat.sender.image} />
+                </Badge>
+                {/* <img src={chat.sender.image} alt="User" /> */}
+              </div>
+              <ChatBubble message={chat.message} self={chat.sender.self} />
             </div>
-            <ChatBubble message={chat.message} self={chat.sender.self} />
-          </div>
-        ))}
-      </div>
-
+          ))}
+        </div>
       <Reply />
     </div>
   );
