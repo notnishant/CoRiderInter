@@ -9,6 +9,7 @@ import {
   PaperclipIcon,
 } from "@primer/octicons-react";
 import { Avatar, Badge } from "@mui/material";
+import { Avatar, Badge } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 
