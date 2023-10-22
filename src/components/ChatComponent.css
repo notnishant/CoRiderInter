@@ -1,0 +1,109 @@
+.ChatScreen {
+    height: 90vh;
+    padding: 0vw 5vw 0vw 5w;
+    width: 100%;
+  }
+  .Trip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-left: 5vw;
+    right: 0;
+    width: auto;
+    background-color: #f9f8f3;
+    z-index: 2;
+  }
+  .Trip .trip-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 5vw;
+  }
+  .trip-nav .back {
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .Trip .trip-nav h1 {
+    font-weight: 500;
+    word-spacing: -1vw;
+    font-size: 7.5vw;
+    padding-left: 3vw;
+  }
+  .Trip p {
+    font-weight: 300;
+    font-size: 4.2vw;
+    letter-spacing: 0.12vw;
+  }
+  .header {
+    display: flex;
+    align-items: center;
+  }
+  .header img {
+    width: 12vw;
+    height: 12vw;
+    border-radius: 100%;
+    margin-right: 5vw;
+  }
+  .linebreak {
+    margin-left: -5vw;
+    width: 100vw;
+  }
+  .ChatComponent {
+    display: flex;
+    flex-direction: column-reverse;
+    position: absolute;
+    overflow-y: scroll;
+    top: 45vw;
+    left: 0;
+    bottom: 25vw;
+    padding: 5vw 5vw 5vw 0vw;
+    order: -1;
+  }
+  .ChatComponent > .date-seprator {
+    order: 99;
+  }
+  .ChatComponent .other-chat {
+    display: flex;
+    flex-direction: row;
+  }
+  .ChatComponent img {
+    width: 8vw;
+    height: 8vw;
+    border-radius: 100%;
+  }
+  .badge .kyc-badge img {
+    object-fit: cover;
+    width: 3vw;
+    height: 3vw;
+  }
+  .other-chat {
+    display: flex;
+    padding: 5vw 7vw 0vw 0vw;
+    align-items: top;
+  }
+  .other-chat .OtherChatBubble {
+    margin-left: 2vw;
+  }
+  
+  .self-chat {
+    display: flex;
+    padding: 5vw 0vw 0vw 10vw;
+  }
+  .self-chat img {
+    display: none;
+  }
+  
+  
+  .self-chat .badge {
+    display: none;
+  }
+  
+  .no {
+    display: none;
+  }
+  .date-bubble {
+    display: flex;
+    justify-content: center;
+  }

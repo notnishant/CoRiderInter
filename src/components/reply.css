@@ -1,0 +1,63 @@
+.reply {
+    /* background-color: #f9f8f3; */
+  
+    position: absolute;
+    width: 100%;
+    height: 20vw;
+    bottom: 5vw;
+    right: 0;
+    z-index: 1;
+  }
+  .reply .frame {
+    align-items: center;
+    position: relative;
+    background-color: #ffffff;
+    margin: 3vw;
+    border-radius: 5vw;
+    padding: 4vw 5vw 4vw 5vw;
+    display: flex;
+    justify-content: space-between;
+  }
+  .reply .icon-div {
+    min-width: 25%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .reply .icon-div button {
+    background-color: transparent;
+    border: none;
+  }
+  .reply .text-div input {
+    border: none;
+    font-size: 3.5vw;
+  }
+  .reply .text-div input:focus {
+    outline: none;
+  }
+  .attachmentmenu {
+    position: absolute;
+    bottom: 12vw;
+    right: 3vw;
+  }
+  .attachmentmenu .icon {
+    color: white;
+  }
+  .attachmentmenu ul {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    padding: 5vw;
+    background-color: green;
+    border-radius: 7vw;
+    gap: 7vw;
+  }
+  .attachmentmenu::before {
+    content: "";
+    position: absolute;
+    border: 2vw solid transparent;
+    border-top-color: green;
+    border-bottom: 0;
+    bottom: 2.4vw;
+    right: 18vw;
+  }
