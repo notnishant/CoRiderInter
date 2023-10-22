@@ -65,15 +65,14 @@ body {
 }
 .ChatComponent {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   position: absolute;
   overflow-y: auto;
   top: 45vw;
   left: 0;
   bottom: 25vw;
-  padding: 5vw 5vw 5vw 0vw ;
+  padding: 5vw 5vw 5vw 0vw;
 }
-
 
 .ChatComponent .other-chat {
   display: flex;
@@ -97,7 +96,7 @@ body {
   padding: 5vw 7vw 0vw 0vw;
   align-items: top;
 }
-.other-chat .OtherChatBubble{
+.other-chat .OtherChatBubble {
   margin-left: 2vw;
 }
 
@@ -211,3 +210,9 @@ body {
 .no {
   display: none;
 }
+.date-bubble{
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  
+} 
