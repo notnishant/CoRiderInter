@@ -9,7 +9,6 @@ import {
   PaperclipIcon,
 } from "@primer/octicons-react";
 import { Avatar, Badge } from "@mui/material";
-import { Avatar, Badge } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 
@@ -153,7 +152,7 @@ const ChatComponent: React.FC<ApiResponse> = (data) => {
       <div className="ChatComponent">
       <div className="date-seprator" style={{display:'flex' , flexDirection: 'row', alignItems: 'center'}}>
         <div style={{flex:1, height: '1px', backgroundColor: 'grey', marginLeft: '5vw'}}></div>
-        <div><h4 style={{width: '100px', textAlign: 'center', color: 'grey'}}>{dateBubble}</h4></div>
+        <div><h4 style={{width: '100px', textAlign: 'center', color: 'grey', fontWeight: '300'}}>{dateBubble}</h4></div>
         <div style={{flex:1, height: '1px', backgroundColor: 'grey'}}></div>
         </div> 
         {data.chats
@@ -190,8 +189,8 @@ const ChatComponent: React.FC<ApiResponse> = (data) => {
                 >
                   <Avatar alt="User" src={chat.sender.image} />
                 </Badge>
-                {/* <img src={chat.sender.image} alt="User" /> */}
               </div>
+              {/* UNCOMMENT TO SHOW TIME STAMP */}
               {/* <h2>{chat.time}</h2> */}
               <ChatBubble message={chat.message} self={chat.sender.self} />
             </div>
@@ -206,11 +205,9 @@ const ChatComponent: React.FC<ApiResponse> = (data) => {
 const App: React.FC = () => {
   const [chatData, setChatData] = useState<ApiResponse | null>(null);
   useEffect(() => {
-    // Fetch chat data from the provided URL
     fetch("https://qa.corider.in/assignment/chat")
       .then((response) => response.json())
       .then((data) => {
-        // Set the fetched data to the state
         setChatData(data);
       })
       .catch((error) => {
