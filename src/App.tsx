@@ -11,6 +11,7 @@ import {
 import { Avatar, Badge } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
+
 interface Chat {
   id: string;
   message: string;
@@ -89,24 +90,21 @@ const SmallAvatar = styled(Avatar)(({ theme }) => ({
 }));
 
 const ChatComponent: React.FC<ApiResponse> = (data) => {
-  const [currentDate, setCurrentDate] = useState<Date>(new Date());
-
-  useEffect(() => {
-    if (data.chats.length > 0) {
-      const newestMessage = data.chats[data.chats.length - 1];
-      const newestMessageDate = new Date(newestMessage.time);
-
-      if (newestMessageDate > currentDate) {
-        setCurrentDate(newestMessageDate);
-      }
+  const dateOfOldestMessage = data.chats.sort((chat1, chat2) => {
+    if (chat1.time < chat2.time) {
+      return -1;
+    } else if (chat1.time > chat2.time) {
+      return 1;
+    } else {
+      return 0;
     }
-  }, [data.chats]);
+  })[0].time;
+  const dateBubble = (
+    <div className="date-bubble">
+      <p>{new Date(dateOfOldestMessage).toLocaleDateString()}</p>
+    </div>
+  );
 
-  // Display the date without time
-
-  const formatDate = (date: Date): string => {
-    return date.toLocaleDateString();
-  };
   return (
     <div className="ChatScreen">
       <div className="Trip">
@@ -150,8 +148,25 @@ const ChatComponent: React.FC<ApiResponse> = (data) => {
         </div>
         <hr className="linebreak" />
       </div>
-        <div className="ChatComponent">
-          {data.chats.map((chat) => (
+      
+      <div className="ChatComponent">
+      <div className="date-seprator" style={{display:'flex' , flexDirection: 'row', alignItems: 'center'}}>
+        <div style={{flex:1, height: '1px', backgroundColor: 'grey', marginLeft: '5vw'}}></div>
+        <div><h4 style={{width: '100px', textAlign: 'center', color: 'grey', fontWeight: '300'}}>{dateBubble}</h4></div>
+        <div style={{flex:1, height: '1px', backgroundColor: 'grey'}}></div>
+        </div> 
+        {data.chats
+          .sort((chat1, chat2) => {
+            if (chat1.time < chat2.time) {
+              return -1;
+            } else if (chat1.time > chat2.time) {
+              return 1;
+            } else {
+              return 0;
+            }
+          })
+          .map((chat) => (
+            
             <div
               key={chat.id}
               className={chat.sender.self ? "self-chat" : "other-chat"}
@@ -174,12 +189,14 @@ const ChatComponent: React.FC<ApiResponse> = (data) => {
                 >
                   <Avatar alt="User" src={chat.sender.image} />
                 </Badge>
-                {/* <img src={chat.sender.image} alt="User" /> */}
               </div>
+              {/* UNCOMMENT TO SHOW TIME STAMP */}
+              {/* <h2>{chat.time}</h2> */}
               <ChatBubble message={chat.message} self={chat.sender.self} />
             </div>
           ))}
-        </div>
+      </div>
+
       <Reply />
     </div>
   );
@@ -188,11 +205,9 @@ const ChatComponent: React.FC<ApiResponse> = (data) => {
 const App: React.FC = () => {
   const [chatData, setChatData] = useState<ApiResponse | null>(null);
   useEffect(() => {
-    // Fetch chat data from the provided URL
     fetch("https://qa.corider.in/assignment/chat")
       .then((response) => response.json())
       .then((data) => {
-        // Set the fetched data to the state
         setChatData(data);
       })
       .catch((error) => {

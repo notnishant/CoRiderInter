@@ -34,7 +34,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-right: 10vw;
+  padding-right: 5vw;
 }
 .trip-nav .back {
   display: flex;
@@ -74,15 +74,13 @@ body {
   overflow-y: scroll;
   top: 45vw;
   left: 0;
-  right: 5vw;
-  bottom: 30vw;
+  bottom: 25vw;
   padding: 5vw 5vw 5vw 0vw;
+  order: -1;
 }
-.ChatScreen {
-  /* /  display: flex;
-  flex-direction: ; */
+.ChatComponent > .date-seprator {
+ order: 99;  
 }
-
 .ChatComponent .other-chat {
   display: flex;
   flex-direction: row;
@@ -91,9 +89,6 @@ body {
   width: 8vw;
   height: 8vw;
   border-radius: 100%;
-}
-
-.badge .kyc-badge {
 }
 .badge .kyc-badge img {
   object-fit: cover;
@@ -159,7 +154,7 @@ body {
   position: absolute;
   width: 100%;
   height: 20vw;
-  bottom: 15vw;
+  bottom: 5vw;
   right: 0;
   z-index: 1;
 }
@@ -192,7 +187,7 @@ body {
 }
 .attachmentmenu {
   position: absolute;
-  bottom: 18vw;
+  bottom: 12vw;
   right: 3vw;
 }
 .attachmentmenu .icon {
@@ -202,9 +197,9 @@ body {
   display: flex;
   flex-direction: row;
   list-style-type: none;
-  padding: 5vw 5vw 5vw 5vw;
+  padding: 5vw;
   background-color: green;
-  border-radius: 8vw;
+  border-radius: 7vw;
   gap: 7vw;
 }
 .attachmentmenu::before {
@@ -219,14 +214,7 @@ body {
 .no {
   display: none;
 }
-.date-line-break {
-  display: none;
+.date-bubble{
+  display: flex;
   justify-content: center;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.date-line-break hr {
-  border: 1px dashed black;
-  width: 100%;
-}
+} 
