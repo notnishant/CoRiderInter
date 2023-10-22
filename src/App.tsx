@@ -217,7 +217,7 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      <h1>Open in mobile device to see the website</h1>
+      <h2>Open in mobile device to see the website</h2>
       {chatData ? <ChatComponent {...chatData} /> : <p>Loading chat data...</p>}
     </div>
   );
