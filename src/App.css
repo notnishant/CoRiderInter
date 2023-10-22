@@ -14,7 +14,9 @@ body {
   width: 100%;
   height: 100vh;
 }
-
+.App h1{
+  display: none;
+}
 .ChatScreen {
   height: 90vh;
   padding: 0vw 5vw 0vw 5w;
@@ -218,3 +220,18 @@ body {
   display: flex;
   justify-content: center;
 } 
+@media screen and (min-width: 100vh) {
+  /* The width is greater than the height */
+  .App h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8vw;
+    font-weight: 400;
+    text-align: center;
+  }
+  .ChatScreen{
+    display: none;
+  }
+  
+}
